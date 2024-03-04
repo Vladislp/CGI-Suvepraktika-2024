@@ -1,0 +1,27 @@
+.lower-nav {
+    display: flex;
+}
+
+/* https://www.w3schools.com/howto/howto_css_image_center.asp */
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
+.language-link {
+    margin-right: 10px;  
+    text-decoration: none;
+    color: #333;  
+    font-size: 16px;  
+}
+.dateTime {
+    margin-left: auto;
+}
+
+/* https://www.w3schools.com/css/css_border.asp */
+body {
+    border-left: 30px solid #ffffff;
+    border-right: 30px solid #ffffff;
+    margin: 0;
+}
