@@ -4,7 +4,6 @@ import upperNavImage from './components/Navigation/Logo.jpg';
 import './App.css';
 import DateTime from './components/Date and Time/dateTime';
 import EventList from './components/XML2JS/EventList';
-
 function App() {
   return (
     <div className="App">

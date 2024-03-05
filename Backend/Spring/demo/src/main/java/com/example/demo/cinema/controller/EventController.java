@@ -12,14 +12,21 @@ import com.example.demo.cinema.model.Event;
 import com.example.demo.cinema.service.EventService;
 
 import reactor.core.publisher.Mono;
-
+/**
+ * Controller class for handling cinema event-related HTTP requests.
+ * https://github.com/Vladislp/CGI-Suvepraktika-2024/issues/9
+ */
 @CrossOrigin(origins= "http://localhost:3000")
 @RestController
 @RequestMapping("/cinema")
 public class EventController {
     @Autowired
     private EventService eventService;
-
+    /**
+     * Endpoint to retrieve details of cinema events.
+     *
+     * @return A reactive Mono containing a list of events.
+     */
     @GetMapping("/event")
     public Mono<List<Event>> getEventDetails() {
         return eventService.getEventDetails();
