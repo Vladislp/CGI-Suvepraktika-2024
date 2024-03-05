@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
-import '../../App.css'; // Assuming your styles are defined here
+import '../../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 /**
@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
  */
 const CinemaList = () => {
   const [cinemaData, setCinemaData] = useState([]);
-
   useEffect(() => {
     /**
      * Fetch cinema data from the server.
@@ -29,7 +28,7 @@ const CinemaList = () => {
   return (
     <div className='cinema-list'>
       {/* Dropdown component to select a cinema */}
-      <Dropdown>
+      <Dropdown className='cinema-list-dropdown'>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
           Select Cinema
         </Dropdown.Toggle>

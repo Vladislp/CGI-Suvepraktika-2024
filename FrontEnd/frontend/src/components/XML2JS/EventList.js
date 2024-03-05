@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './EventList.css';
 
 const EventList = () => {
     const [events, setEvents] = useState([]);
@@ -10,6 +11,7 @@ const EventList = () => {
             includeGallery: true,
             includeVideos: true,
             includeLinks: true,
+            listType: 'CommingSoon',
         }
         // Fetch data from Spring Boot API
         axios.get('http://localhost:8080/cinema/event', {params})
@@ -22,18 +24,17 @@ const EventList = () => {
     }, []);
 
     return (
-        <div>
-            <h2>Event List</h2>
-            <ul>
+        <div className="event-list-container">
+            <div className="movie-grid">
                 {events.map(event => (
-                    <li key={event.id}>
-                        <h3>{event.Title}</h3>
-                        <h3>{event.OriginalTitle}</h3>
-                        {console.log(event)}
+                    <div key={event.id} className="movie-box">
                         <img src={event.Images.EventMediumImagePortrait} alt="Event Poster" />
-                    </li>
+                        <h3>{event.Title}</h3>
+                        <p>{event.OriginalTitle}</p>
+                        <p>Genres: {event.Genres}</p>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };
