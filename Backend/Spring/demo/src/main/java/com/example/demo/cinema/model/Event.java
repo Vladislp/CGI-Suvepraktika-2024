@@ -27,6 +27,12 @@ public class Event {
     @JsonProperty("Genres")
     private String genres;
 
+    @JsonProperty("ShortSynopsis")
+    private String shortsynopsis;
+
+    @JsonProperty("Rating")
+    private String rating;
+
     /**
      * Default constructor for the Event class.
      */
@@ -66,6 +72,15 @@ public class Event {
     }
 
     /**
+     * Retrieves the title of the event.
+     *
+     * @return The title of the event.
+     */
+    public String getRating() {
+        return rating;
+    }
+
+    /**
      * Retrieves the original title of the event.
      *
      * @return The original title of the event.
@@ -99,6 +114,15 @@ public class Event {
      */
     public String getGenres() {
         return genres;
+    }
+
+    /**
+     * Retrieves the genres of the event.
+     *
+     * @return The genres of the event.
+     */
+    public String getShortSynopsis() {
+        return shortsynopsis;
     }
 
     /**

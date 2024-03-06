@@ -11,15 +11,12 @@ export const DateTime = () => {
         // Clean up function to clear the interval when the component is unmounted
         return function cleanup() {
             clearInterval(timer)
-        }
-    
+        }  
     });
-
     return(
-        <div>
-            <p> Time : {date.toLocaleTimeString()}</p>
-            <p> Date : {date.toLocaleDateString()}</p>
-
+        <div className='dateTime-container'>
+            <p className='time'> Time : {date.toLocaleTimeString()}</p>
+            <p className='date'> Date : {date.toLocaleDateString()}</p>
         </div>
     )
 }
