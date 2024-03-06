@@ -27,6 +27,7 @@ public class EventController {
      *
      * @return A reactive Mono containing a list of events.
      */
+    @CrossOrigin(origins= "http://localhost:3000")
     @GetMapping("/event")
     public Mono<List<Event>> getEventDetails() {
         return eventService.getEventDetails();

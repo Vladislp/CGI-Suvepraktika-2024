@@ -4,12 +4,14 @@
 }
 
 .movie-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     gap: 20px;
 }
 
 .movie-box {
+    flex: 0 0 calc(33.33% - 20px);
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
@@ -18,4 +20,27 @@
 .movie-box img {
     max-width: 100%;
     height: auto;
+}
+
+.navigation-arrows {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.navigation-arrows button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.navigation-arrows button:hover {
+    background-color: #45a049;
 }
