@@ -5,15 +5,17 @@ import axios from 'axios';
 import './EventList.css';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { Link } from 'react-router-dom';
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [showOffcanvas, setShowOffcanvas] = useState(false);
-  console.log(selectedEvent)
+  
 
   const handleShowOffcanvas = (event) => {
     setSelectedEvent(event);
+    localStorage.setItem('selectedEvent', JSON.stringify(event));
     setShowOffcanvas(true);
   };
 
@@ -67,7 +69,14 @@ const EventList = () => {
               <p>Tootmisaasta: {selectedEvent.ProductionYear}</p>
               <p>Genres: {selectedEvent.Genres}</p>
               <p>{selectedEvent.shortSynopsis}</p>
-              <Button href='#'>Vaata kohad</Button>
+              <Link
+                to={{
+                  pathname: "/movie/seats",
+                  state: { selectedEvent },
+                }}
+              >
+                <Button onClick={() => handleCloseOffcanvas(selectedEvent)}>Vaata kohad</Button>
+              </Link>
             </>
           )}
         </Offcanvas.Body>
