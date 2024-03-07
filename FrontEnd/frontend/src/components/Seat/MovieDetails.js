@@ -1,35 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 
 const MovieDetails = () => {
-  const { id } = useParams();
-  const [movie, setMovie] = useState(null);
-  console.log(id)
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:8080/cinema/event/${id}`);
-        const data = await response.json();
-        setMovie(data)
-      } catch (error) {
-        console.error('Error fetching movie details:', error);
-      }
-    };
+  // Retrieve the stored event from localStorage
+  const storedEvent = JSON.parse(localStorage.getItem('selectedEvent'));
 
-    fetchData();
-  }, [id]);
-  if (!movie) {
-    return <div>Loading...</div>;
+  if (!storedEvent) {
+    // Handle the case where the stored event is not available
+    return (
+      <div>
+        <h1>No movie selected</h1>
+      </div>
+    );
   }
 
   return (
     <div>
-      <h2>Movie Details</h2>
-      <p>Movie ID: {id}</p>
-      <h3>{movie.Title}</h3>
-      <p>{movie.OriginalTitle}</p>
-      <p>Genres: {movie.Genres}</p>
+      <h1>{storedEvent.Title}</h1>
+      <p>{storedEvent.OriginalTitle}</p>
+      <p>Rating: {storedEvent.Rating}</p>
+      <img src={storedEvent.Images.EventMediumImagePortrait} alt="Event Poster" />
+      <p>Pikkus: {storedEvent.LengthInMinutes} minutid</p>
+      <p>Tootmisaasta: {storedEvent.ProductionYear}</p>
+      <p>Genres: {storedEvent.Genres}</p>
+      <p>{storedEvent.shortSynopsis}</p>
     </div>
   );
 };
