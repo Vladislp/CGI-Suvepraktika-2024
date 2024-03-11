@@ -22,9 +22,3 @@ Seat Planner is a React-based application that allows users to select seats in a
 ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/85013b5c-df1e-45b3-84a8-6f083e463d48)
 2) Where at the end, you can see, what seats you have choose. (Still in progress, main functionality is working)
 ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/13765336-e99f-4e20-b9f6-770ebfde068e)
-
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/seat-planner.git
