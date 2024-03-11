@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Cinema Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is the frontend part of a cinema-related application. It fetches and displays cinema events from the Apollo Kino API.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Fetches cinema events from the Apollo Kino API. (https://www.apollokino.ee/xml)
+![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/41413559-01a6-49d7-bdef-abfc03fce9a0)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Displays a list of cinema events with details.
 
-### `npm test`
+- ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/c04d5801-a4b3-4d04-9e9e-09edb3637755)
+- ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/b80ed076-676a-42ce-9d15-bb32fd63c657)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- JavaScript
+- CSS
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- Node.js: [Download and Install Node.js](https://nodejs.org/)
+- npm (Node Package Manager): Comes with Node.js installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository (I am using github Desktop for this):
+   ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/e90072cb-a00b-41bc-a2d9-b793a750b975)
+2. Next, click her
+   ![Screenshot 2024-03-11 113446](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/8b8f472d-c3b7-4d2f-89d1-6a0c3a511fcd)
+3. Click the "Add" button and "Clone Repository"
+   ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/1780a94c-fe00-4462-a660-cfa2616158dd)
+4. We need to copy adress from here (**HTTPS**)
+   ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/4a2b322b-8a77-4010-8d9b-cb5102fbbd2f)
+5. We have repository now on our computer.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/3fdd31f1-fc1f-4749-9d34-cc0729477841)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Usage
 
-## Learn More
+1. I am using "git bash" for this operation. We need to open main "front-end" folder
+   ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/6dfa5550-6185-422f-befb-f35da4f9c73e)
+2. When we inside our folder, type: "**npm start**". We should have response some what similar to this.
+   ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/fbf7ed62-0a5d-4b47-acd2-55f1c083fffb)
+3. If we do, front-end is working and we need to type in our browser url "localhost:3000".
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
