@@ -50,10 +50,6 @@ The backend server will be running on http://localhost:8080 by default.
 
 ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/dcbf2cd2-0c4d-46b6-9998-8572fc860440)
 
-3) If curious how to start front-end as well,
-
-[Frontend Repository](https://github.com/Vladislp/CGI-Suvepraktika-2024/tree/main/FrontEnd/frontend#installation)
-
 ### Usage of frontend
 
 1. I am using "git bash" for this operation. We need to open main "front-end" folder
