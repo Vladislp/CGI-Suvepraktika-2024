@@ -6,6 +6,7 @@ import DateTime from './components/Date and Time/dateTime';
 import EventList from './components/XML2JS/EventList';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MovieDetails from './components/Seat/MovieDetails';
+import SeatPlan from './components/Seat/SeatPlan';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           </Routes>
           {/* Conditionally render EventList based on the route */}
           {window.location.pathname !== '/movie/seats' && <EventList />}
+          <SeatPlan/>
         </div>
       </div>
     </Router>
