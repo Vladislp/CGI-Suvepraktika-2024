@@ -28,6 +28,39 @@ Users can apply various filters to tailor their movie recommendations:
 * **Central Position**: Users generally prefer seats located towards the center of the screen for an optimal viewing experience.
 * **Not Too Close or Too Far**: The system avoids suggesting seats that are too close or too far from the screen, ensuring a comfortable viewing distance.
 
-## Usage
-1. Clone the repository to your local machine.
+### Installation
+
+1. Clone the repository (I am using github Desktop for this):
+   ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/e90072cb-a00b-41bc-a2d9-b793a750b975)
+2. Next, click her
+   ![Screenshot 2024-03-11 113446](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/8b8f472d-c3b7-4d2f-89d1-6a0c3a511fcd)
+3. Click the "Add" button and "Clone Repository"
+   ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/1780a94c-fe00-4462-a660-cfa2616158dd)
+4. We need to copy adress from here (**HTTPS**)
+   ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/4a2b322b-8a77-4010-8d9b-cb5102fbbd2f)
+5. We have repository now on our computer.
+
+   ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/3fdd31f1-fc1f-4749-9d34-cc0729477841)
+
+### Usage of backend
+The backend server will be running on http://localhost:8080 by default.
+1) Go to ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/a9a5d2fc-d6d1-4412-a9ee-fdda2bf93f25)
+
+2) Use ./gradlew bootRun and you should have result similar to this
+
+![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/dcbf2cd2-0c4d-46b6-9998-8572fc860440)
+
+3) If curious how to start front-end as well,
+
+[Frontend Repository](https://github.com/Vladislp/CGI-Suvepraktika-2024/tree/main/FrontEnd/frontend#installation)
+
+### Usage of frontend
+
+1. I am using "git bash" for this operation. We need to open main "front-end" folder
+   ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/6dfa5550-6185-422f-befb-f35da4f9c73e)
+2. When we inside our folder, type: "**npm start**". We should have response some what similar to this.
+   ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/fbf7ed62-0a5d-4b47-acd2-55f1c083fffb)
+3. If we do, front-end is working and we need to type in our browser url "localhost:3000".
+
+
 
