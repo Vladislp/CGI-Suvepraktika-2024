@@ -9,6 +9,11 @@
     margin-right: auto;
     width: 20%;
 }
+.upper-nav {
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .language-link {
     margin-right: 10px;  
     text-decoration: none;
@@ -28,4 +33,9 @@ body {
 .cinema-list {
     background-color: rgb(239, 235, 235);
     display: flex;
+}
+
+.genre-dropdown {
+    background-color: rgb(239, 235, 235);
+    margin-left: auto;
 }
