@@ -4,16 +4,16 @@
 
 ## Table of Contents
 
-1. [Features](#features)
-2. [Technologies Used](#technologies-used)
+1. [Movie and Seat Recommendation Web Application](#movie-and-seat-recommendation-web-application)
+2. [Features](#features) 
+    - [Movie Recommendations](#movie-recommendations)
+    - [Seat Recommendations](#seat-recommendations)
+    - [Filters](#filters)
+    - [Seat Recommendation Guidelines](#seat-recommendation-guidelines)
 3. [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
     - [Installation](#installation)
-    - [Configuration](#configuration)
-4. [Usage](#usage)
-    - [Backend](#usage-of-backend)
-    - [Frontend](#usage-of-frontend)
-5. [API Endpoints](#api-endpoints)
+    - [Usage of backend](#usage-of-backend)
+    - [Usage of frontend](#usage-of-frontend)
 
 ## Movie and Seat Recommendation Web Application
 
@@ -40,7 +40,7 @@ Users can apply various filters to tailor their movie recommendations:
 
 * **Central Position**: Users generally prefer seats located towards the center of the screen for an optimal viewing experience.
 * **Not Too Close or Too Far**: The system avoids suggesting seats that are too close or too far from the screen, ensuring a comfortable viewing distance.
-
+## Getting Started
 ### Installation
 
 1. Clone the repository (I am using github Desktop for this):
