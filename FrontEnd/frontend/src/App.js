@@ -2,11 +2,12 @@ import React from 'react';
 import CinemaList from './components/XML2JS/CinemaList';
 import upperNavImage from './components/Navigation/Logo.jpg';
 import './App.css';
-import DateTime from './components/Date and Time/dateTime';
+import DateTime from './components/utility/Date and Time/dateTime';
 import EventList from './components/XML2JS/EventList';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MovieDetails from './components/Seat/MovieDetails';
 import SeatPlan from './components/Seat/SeatPlan';
+import HorizontalNonLinearStepper from './components/utility/step/stepper';
 
 function App() {
   return (
@@ -28,11 +29,16 @@ function App() {
             <Route path="/" element={<CinemaList />} />
             <Route path="/events" element={<EventList />} />
             {/* Render EventList only when the route is not "/movie/seats" */}
-            <Route path="/movie/seats/*" element={<MovieDetails />} />
+            <Route path="/movie/seats/*" element={
+              <>
+                <MovieDetails />
+                <HorizontalNonLinearStepper />
+                <SeatPlan />
+              </>
+            } />
           </Routes>
           {/* Conditionally render EventList based on the route */}
           {window.location.pathname !== '/movie/seats' && <EventList />}
-          <SeatPlan/>
         </div>
       </div>
     </Router>
