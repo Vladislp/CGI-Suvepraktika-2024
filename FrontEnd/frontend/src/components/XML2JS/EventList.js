@@ -11,7 +11,6 @@ const EventList = () => {
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [showOffcanvas, setShowOffcanvas] = useState(false);
-  
 
   const handleShowOffcanvas = (event) => {
     setSelectedEvent(event);
