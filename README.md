@@ -2,6 +2,19 @@
 
 ![alt text](https://www.bvrla.co.uk/static/07e2b2b4-cbab-4643-bc6cfc2048faba43/org_logo_5666da568e66e32d191455783ea1a05a_4a7c7e45a350/CGIlogocolorrgb.png)
 
+## Table of Contents
+
+1. [Features](#features)
+2. [Technologies Used](#technologies-used)
+3. [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Configuration](#configuration)
+4. [Usage](#usage)
+    - [Backend](#usage-of-backend)
+    - [Frontend](#usage-of-frontend)
+5. [API Endpoints](#api-endpoints)
+
 ## Movie and Seat Recommendation Web Application
 
 This web application is designed to help cinema-goers find suitable movies based on their preferences and recoomend optimal seats within the cinema hall. Users can apply various filters to refine their movie choices, taking into account their viewing history, preferred genres, and timing preferences. The application also provides seat recommendations within the cinema hall for the selected movie, considering factors such as the user's preferred seating position.
