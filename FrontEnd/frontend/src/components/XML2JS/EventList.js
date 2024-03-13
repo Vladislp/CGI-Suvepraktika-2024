@@ -20,6 +20,7 @@ const EventList = () => {
 
   const handleCloseOffcanvas = () => {
     setShowOffcanvas(false);
+    setEvents([]);
   };
 
   useEffect(() => {
