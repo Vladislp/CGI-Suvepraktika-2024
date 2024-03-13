@@ -7,7 +7,6 @@ import EventList from './components/XML2JS/EventList';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MovieDetails from './components/Seat/MovieDetails';
 import SeatPlan from './components/Seat/SeatPlan';
-import HorizontalNonLinearStepper from './components/utility/step/stepper';
 
 function App() {
   return (
@@ -32,7 +31,6 @@ function App() {
             <Route path="/movie/seats/*" element={
               <>
                 <MovieDetails />
-                <HorizontalNonLinearStepper />
                 <SeatPlan />
               </>
             } />
