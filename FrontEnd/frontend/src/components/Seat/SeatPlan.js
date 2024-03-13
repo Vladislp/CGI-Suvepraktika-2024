@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './SeatPlan.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChair } from '@fortawesome/free-solid-svg-icons';
+import { Button } from '@mui/material';
 
 const SeatPlan = () => {
   // State variables
@@ -40,28 +41,50 @@ const SeatPlan = () => {
     const middleRow = Math.ceil(rows / 2);
     const middleColumn = Math.ceil(columns / 2);
 
+    let currentRow = middleRow;
+    let currentColumn = middleColumn;
+
     for (let i = 0; i < numTickets; i++) {
-      const presetSeat = { row: middleRow, column: middleColumn + i };
-      presetSeats.push(presetSeat);
+        // Check if the current seat is occupied, if yes, move to the next seat
+        while (occupiedSeats.some(seat => seat.row === currentRow && seat.column === currentColumn)) {
+            currentColumn++;
+            if (currentColumn > columns) {
+                currentColumn = 1;
+                currentRow++;
+                if (currentRow > rows) {
+                    currentRow = 1; // Wrap around to the first row
+                }
+            }
+        }
+
+        // Add the available seat to the presetSeats array
+        presetSeats.push({ row: currentRow, column: currentColumn });
+
+        // Move to the next column
+        currentColumn++;
+        if (currentColumn > columns) {
+            currentColumn = 1;
+            currentRow++;
+            if (currentRow > rows) {
+                currentRow = 1; // Wrap around to the first row
+            }
+        }
     }
 
-    // Filter out preset seats that are already occupied
-    const availablePresetSeats = presetSeats.filter((seat) => {
-      return !occupiedSeats.some((occupiedSeat) => occupiedSeat.row === seat.row && occupiedSeat.column === seat.column);
-    });
+    // Set the selected seats and images
+    setSelectedSeats(presetSeats);
 
-    setSelectedSeats(availablePresetSeats);
-
-    const presetSeatImages = availablePresetSeats.reduce((images, seat) => {
-      images[`${seat.row}-${seat.column}`] = selectedSeatImage;
-      return images;
+    const presetSeatImages = presetSeats.reduce((images, seat) => {
+        images[`${seat.row}-${seat.column}`] = selectedSeatImage;
+        return images;
     }, {});
 
-    setSeatImages((prevImages) => ({
-      ...prevImages,
-      ...presetSeatImages,
+    setSeatImages(prevImages => ({
+        ...prevImages,
+        ...presetSeatImages,
     }));
-  };
+};
+
 
   useEffect(() => {
     markOccupiedSeats();
@@ -107,7 +130,7 @@ const SeatPlan = () => {
             <img
               src={
                 isSelected
-                  ? customerChoiceImage
+                  ? customerChoiceImage // Use customerChoice image for selected seats
                   : isOccupied
                   ? selectedSeatImage
                   : seatImages[seatKey] || defaultSeatImage
