@@ -4,15 +4,14 @@ import './EventList.css';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Link } from 'react-router-dom';
-import { Result } from 'antd';
+import { Result, Spin } from 'antd';
 
-const EventList = () => {
-  const [events, setEvents] = useState([]); // Events from apollo status
-  const [loading, setLoading] = useState(true); // Track loading status
-  const [error, setError] = useState(null); // Track error state
-  const [selectedEvent, setSelectedEvent] = useState(null); // Selected event status for offCanvas
-  const [showOffcanvas, setShowOffcanvas] = useState(false); // State for handle ON/OFF of offCanvas
-
+const EventList = ({ filteredMovies }) => { 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
+  const [selectedEvent, setSelectedEvent] = useState(null); 
+  const [showOffcanvas, setShowOffcanvas] = useState(false); 
+  
   const handleShowOffcanvas = (event) => {
     setSelectedEvent(event);
     localStorage.setItem('selectedEvent', JSON.stringify(event));
@@ -21,7 +20,7 @@ const EventList = () => {
 
   const handleCloseOffcanvas = () => {
     setShowOffcanvas(false);
-    setEvents([]);
+    setSelectedEvent(null); 
   };
 
   useEffect(() => {
@@ -34,18 +33,21 @@ const EventList = () => {
 
     axios.get('http://localhost:8080/cinema/event', { params })
       .then(response => {
-        setEvents(response.data);
-        setLoading(false); // Update loading status
+        setLoading(false);
       })
       .catch(error => {
         console.error('Error fetching events:', error);
-        setError(error); // Set error state
-        setLoading(false); // Update loading status
+        setError(error);
+        setLoading(false);
       });
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="loading-container"> 
+        <Spin className="" size="large" />
+      </div>
+    );
   }
 
   if (error) {
@@ -62,7 +64,7 @@ const EventList = () => {
   return (
     <div className="event-list-container">
       <div className="movie-grid">
-        {events.map(event => (
+        {filteredMovies ? filteredMovies.map(event => (
           <div key={event.ID} className="movie-box">
             <img src={event.Images.EventMediumImagePortrait} alt="Event Poster" />
             <h3>{event.Title}</h3>
@@ -70,7 +72,7 @@ const EventList = () => {
             <p>Genres: {event.Genres}</p>
             <Button onClick={() => handleShowOffcanvas(event)}>Vaata lähemalt</Button>
           </div>
-        ))}
+        )) : null}
       </div>
 
       <Offcanvas show={showOffcanvas} onHide={handleCloseOffcanvas}>
@@ -83,7 +85,7 @@ const EventList = () => {
               <h3>{selectedEvent.Title}</h3>
               <p>{selectedEvent.OriginalTitle}</p>
               <p>Rating: {selectedEvent.Rating}</p>
-              <img src={selectedEvent.Images.EventMediumImagePortrait}></img>
+              <img src={selectedEvent.Images.EventMediumImagePortrait} alt="Event Poster" />
               <p>Pikkus: {selectedEvent.LengthInMinutes} minutid</p>
               <p>Tootmisaasta: {selectedEvent.ProductionYear}</p>
               <p>Genres: {selectedEvent.Genres}</p>

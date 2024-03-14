@@ -9,16 +9,14 @@
     margin-right: auto;
     width: 20%;
 }
-.upper-nav {
-    background-image: url("");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 .language-link {
     margin-right: 10px;  
     text-decoration: none;
     color: #333;  
     font-size: 16px;  
+}
+.languages-calendar {
+    margin-block: auto;
 }
 .dateTime {
     margin-left: auto;

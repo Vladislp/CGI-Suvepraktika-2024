@@ -3,6 +3,7 @@ import './SeatPlan.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChair } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { Button, Flex } from 'antd';
 
 const SeatPlan = () => {
   // State variables
@@ -171,7 +172,9 @@ const SeatPlan = () => {
         </div>
         <h3>Valitud kohad</h3>
         <Link to="/">
-          <button>Tagasi esilehele</button>
+          <Flex gap="small" wrap="wrap">
+            <Button type="primary">Tagasi Esilehele</Button>
+          </Flex>
         </Link>
         <ul className="item">
           {selectedSeats.map((seat) => (
@@ -184,7 +187,9 @@ const SeatPlan = () => {
           pathname: "/success",
           state: { selectedSeats: selectedSeats } // Pass the selected seats as props
         }}>
-          <button>Osta</button>
+          <Flex gap="small" wrap="wrap">
+            <Button type="primary">Osta</Button>
+          </Flex>
         </Link>
       </div>
       <h2>Valige endale koht</h2>
