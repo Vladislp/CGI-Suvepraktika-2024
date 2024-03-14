@@ -2,6 +2,14 @@
 
 ![alt text](https://www.bvrla.co.uk/static/07e2b2b4-cbab-4643-bc6cfc2048faba43/org_logo_5666da568e66e32d191455783ea1a05a_4a7c7e45a350/CGIlogocolorrgb.png)
 
+- React: ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white&style=flat)
+- JavaScript: ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black&style=flat)
+- HTML: ![HTML](https://img.shields.io/badge/-HTML5-E34F26?logo=html5&logoColor=white&style=flat)
+- CSS: ![CSS](https://img.shields.io/badge/-CSS3-1572B6?logo=css3&logoColor=white&style=flat)
+- Spring Boot: ![Spring Boot](https://img.shields.io/badge/-Spring%20Boot-6DB33F?logo=spring-boot&logoColor=white&style=flat)
+- PostgreSQL: ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-336791?logo=postgresql&logoColor=white&style=flat)
+
+
 ## Table of Contents
 
 1. [Movie and Seat Recommendation Web Application](#movie-and-seat-recommendation-web-application)
