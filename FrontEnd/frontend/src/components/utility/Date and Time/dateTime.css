@@ -1,0 +1,6 @@
+.big-cartoon {
+    font-size: 48px; /* Set the font size to make the numbers big */
+    font-weight: bold; /* Make the font bold for emphasis */
+    font-family: 'Comic Sans MS', cursive; /* Use a cartoon font */
+    color: #000000; /* Set the color to a cartoonish color */
+}

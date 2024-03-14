@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
-import axios from 'axios';
 import '../../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import EventList from './EventList';
 
 /**
  * CinemaList component to display a dropdown list of cinemas.
@@ -11,7 +11,8 @@ const CinemaList = ({}) => {
   const [cinemaData, setCinemaData] = useState([]);
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState(null);
-
+  const [filteredMovies, setFilteredMovies] = useState([]);
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -58,19 +59,42 @@ const CinemaList = ({}) => {
     fetchData(); // Invoke the fetchData function on component mount
   }, []); // Empty dependency array indicates it should run once on mount
   
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/cinema/event');
+        const movies = await response.json();
+        
+        // Filter movies based on the selected genre
+        const filteredMovies = movies.filter(movie => {
+          const movieGenres = movie.Genres.split(',').map(genre => genre.trim());
+          return movieGenres.includes(selectedGenre);
+        });
+  
+        console.log(filteredMovies);
+        // Set the filtered movies state
+        setFilteredMovies(filteredMovies);
+  
+        // You can set state or do further processing with filteredMovies
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData();
+  }, [selectedGenre]); // Trigger the effect whenever selectedGenre changes
+  
   const handleSelectGenre = (genre) => {
     setSelectedGenre(genre);
-    console.log(genre)
   }
 
-  
 
   return (
-    <div className='cinema-list'>
+    <><div className='cinema-list'>
       {/* Dropdown component to select a cinema */}
       <Dropdown className='cinema-list-dropdown'>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
-          Select Cinema
+          Valige kino asukoht
         </Dropdown.Toggle>
         <Dropdown.Menu>
           {/* Map over cinema data and create dropdown items */}
@@ -83,7 +107,7 @@ const CinemaList = ({}) => {
       {/* Dropdown component to select a genre */}
       <Dropdown className='genre-dropdown'>
         <Dropdown.Toggle variant="success" id="dropdown-genre">
-          Select Genre
+          Valige Genre
         </Dropdown.Toggle>
         <Dropdown.Menu>
           {/* Map over genres and create dropdown items */}
@@ -94,7 +118,10 @@ const CinemaList = ({}) => {
           ))}
         </Dropdown.Menu>
       </Dropdown>
-    </div>
+    </div><div>
+        {/* Pass the filtered movies as a prop to the EventList component */}
+        <EventList filteredMovies={filteredMovies} />
+      </div></>
   );
 };
 
