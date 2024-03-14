@@ -7,6 +7,8 @@ import EventList from './components/XML2JS/EventList';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MovieDetails from './components/Seat/MovieDetails';
 import SeatPlan from './components/Seat/SeatPlan';
+import Error404 from './components/Error/ErrorPage';
+import Success from './components/Success/Success';
 
 function App() {
   return (
@@ -19,24 +21,26 @@ function App() {
           <a href="#" className="language-link">Eesti</a>
           <a href="#" className="language-link">Русский</a>
           <a href="#" className="language-link">English</a>
-            <div className='dateTime'>
-              <DateTime/>
-            </div>
+          <div className='dateTime'>
+            <DateTime/>
+          </div>
         </div>
         <div className='body'>
           <Routes>
-            <Route path="/" element={<CinemaList />} />
+            <Route path="/" element={<>
+              <CinemaList />
+              <EventList />
+            </>} />
             <Route path="/events" element={<EventList />} />
-            {/* Render EventList only when the route is not "/movie/seats" */}
+            <Route path="/success" element={<Success />}/>
             <Route path="/movie/seats/*" element={
               <>
                 <MovieDetails />
                 <SeatPlan />
               </>
             } />
+            <Route path="/*" element={<Error404 />} />
           </Routes>
-          {/* Conditionally render EventList based on the route */}
-          {window.location.pathname !== '/movie/seats' && <EventList />}
         </div>
       </div>
     </Router>

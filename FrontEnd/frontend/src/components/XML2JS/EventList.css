@@ -11,7 +11,7 @@
 }
 
 .movie-box {
-    flex: 0 0 calc(33.33% - 20px);
+    flex: 0 0 calc(33.3% - 40px);
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;

@@ -1,16 +1,17 @@
-// https://react-bootstrap.netlify.app/docs/components/offcanvas
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './EventList.css';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Link } from 'react-router-dom';
+import { Result } from 'antd';
 
 const EventList = () => {
-  const [events, setEvents] = useState([]);
-  const [selectedEvent, setSelectedEvent] = useState(null);
-  const [showOffcanvas, setShowOffcanvas] = useState(false);
+  const [events, setEvents] = useState([]); // Events from apollo status
+  const [loading, setLoading] = useState(true); // Track loading status
+  const [error, setError] = useState(null); // Track error state
+  const [selectedEvent, setSelectedEvent] = useState(null); // Selected event status for offCanvas
+  const [showOffcanvas, setShowOffcanvas] = useState(false); // State for handle ON/OFF of offCanvas
 
   const handleShowOffcanvas = (event) => {
     setSelectedEvent(event);
@@ -34,11 +35,29 @@ const EventList = () => {
     axios.get('http://localhost:8080/cinema/event', { params })
       .then(response => {
         setEvents(response.data);
+        setLoading(false); // Update loading status
       })
       .catch(error => {
         console.error('Error fetching events:', error);
+        setError(error); // Set error state
+        setLoading(false); // Update loading status
       });
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return (
+      <Result
+        status="500"
+        title="500"
+        subTitle="Sorry, something went wrong."
+        extra={<Button type="primary" href='/'>Back Home</Button>}
+      />
+    );
+  }
 
   return (
     <div className="event-list-container">
