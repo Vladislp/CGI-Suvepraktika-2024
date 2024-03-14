@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './SeatPlan.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChair } from '@fortawesome/free-solid-svg-icons';
-import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const SeatPlan = () => {
   // State variables
@@ -113,6 +113,10 @@ const SeatPlan = () => {
     }
   };
 
+  useEffect(() => {
+    sessionStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
+  }, [selectedSeats]);
+
   // Render seat elements
   const renderSeats = () => {
     const rows = 5;
@@ -139,7 +143,7 @@ const SeatPlan = () => {
               style={{ maxWidth: '50%', height: 'auto' }}
             />
             <button onClick={() => seatClicked(i, j)} disabled={isOccupied}>
-              {isOccupied ? 'Occupied' : 'Vali see koht'}
+              {isOccupied ? 'Võetud' : 'Vali see koht'}
             </button>
           </div>
         );
@@ -166,6 +170,9 @@ const SeatPlan = () => {
           />
         </div>
         <h3>Valitud kohad</h3>
+        <Link to="/">
+          <button>Tagasi esilehele</button>
+        </Link>
         <ul className="item">
           {selectedSeats.map((seat) => (
             <li key={`${seat.row}-${seat.column}`}>
@@ -173,6 +180,12 @@ const SeatPlan = () => {
             </li>
           ))}
         </ul>
+        <Link to={{
+          pathname: "/success",
+          state: { selectedSeats: selectedSeats } // Pass the selected seats as props
+        }}>
+          <button>Osta</button>
+        </Link>
       </div>
       <h2>Valige endale koht</h2>
       <div className="seat-plan">{renderSeats()}</div>
