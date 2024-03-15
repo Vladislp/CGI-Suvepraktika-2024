@@ -81,8 +81,9 @@ Users can apply various filters to tailor their movie recommendations:
 ### Usage of backend
 The backend server will be running on http://localhost:8080 by default.
 1) Go to ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/a9a5d2fc-d6d1-4412-a9ee-fdda2bf93f25)
+2) We need to be in "demo" folder
 
-2) Use ./gradlew bootRun and you should have result similar to this
+3) Use ./gradlew bootRun and you should have result similar to this
 
 ![image](https://github.com/Vladislp/CGI-Suvepraktika-2024/assets/42935979/dcbf2cd2-0c4d-46b6-9998-8572fc860440)
 
