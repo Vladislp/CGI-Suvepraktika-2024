@@ -55,8 +55,9 @@ const Testing = () => {
 
   return (
     <div>
-      <Button href="/">Esilehele</Button>
-      <Button href="/">Valin see kuupäeva</Button>
+      <h1>Calendar</h1>
+      <Button aria-label="Esilehele" href="/" rel='noopener'>Esilehele</Button>
+      <Button aria-label="Valin see kuupäev" href="/" rel='noopener'>Valin see kuupäeva</Button>
       <Calendar cellRender={cellRender} />
     </div>
   );
