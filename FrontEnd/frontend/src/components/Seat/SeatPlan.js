@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChair } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { Button, Flex } from 'antd';
+import { Helmet } from 'react-helmet';
+
 
 const SeatPlan = () => {
   // State variables
@@ -140,8 +142,9 @@ const SeatPlan = () => {
                   ? selectedSeatImage
                   : seatImages[seatKey] || defaultSeatImage
               }
-              alt={`Seat ${i}-${j}`}
+              alt={`Seat ${i}-${j} plan of cinema`}
               style={{ maxWidth: '50%', height: 'auto' }}
+              loading="lazy"
             />
             <button onClick={() => seatClicked(i, j)} disabled={isOccupied}>
               {isOccupied ? 'Võetud' : 'Vali see koht'}
@@ -157,6 +160,11 @@ const SeatPlan = () => {
   // JSX structure
   return (
     <div>
+      <Helmet>
+        <link rel="prefetch" href={selectedSeatImage} />
+        <link rel="prefetch" href={customerChoiceImage} />
+        <link rel="prefetch" href={defaultSeatImage} />
+      </Helmet>
       <div>
         <div>
           <label htmlFor="numTickets">Valige piletite arv: </label>
@@ -168,10 +176,11 @@ const SeatPlan = () => {
             onChange={(e) => setNumTickets(e.target.value)}
             min="1"
             max="30"
+            aria-label="Valige piletite arv"
           />
         </div>
         <h3>Valitud kohad</h3>
-        <Link to="/">
+        <Link to="/" rel="noopener">
           <Flex gap="small" wrap="wrap">
             <Button type="primary">Tagasi Esilehele</Button>
           </Flex>
@@ -193,7 +202,7 @@ const SeatPlan = () => {
         </Link>
       </div>
       <h2>Valige endale koht</h2>
-      <div className="seat-plan">{renderSeats()}</div>
+      <div className="seat-plan js-seat-plan">{renderSeats()}</div>
       <div className="rectangle"></div>
     </div>
   );

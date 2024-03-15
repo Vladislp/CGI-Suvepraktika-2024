@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Result } from 'antd';
 
 const Success = () => {
-  // Retrieve selected seats from sessionStorage
   const selectedSeats = JSON.parse(sessionStorage.getItem('selectedSeats')) || [];
 
   return (
@@ -11,7 +10,7 @@ const Success = () => {
       title="Successfully Purchased tickets!"
       subTitle="Order number: 2017182818828182881."
       extra={[
-        <Button type="primary" key="console" href='/'>
+        <Button aria-label="Esilehele" type="primary" key="console" href='/' rel="noopener">
           Esilehele
         </Button>,
       ]}
