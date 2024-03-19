@@ -35,8 +35,12 @@ const SeatPlan = () => {
     setOccupiedSeats(occupied);
   };
 
-  // Choose preset seats based on the selected number of tickets
-  const choosePresetSeats = () => {
+  useEffect(() => {
+    markOccupiedSeats();
+  }, []); // Run once on component mount
+
+useEffect(() => {
+  const choosePresetSeats = (numTickets, occupiedSeats) => {
     const rows = 5;
     const columns = 6;
 
@@ -48,54 +52,49 @@ const SeatPlan = () => {
     let currentColumn = middleColumn;
 
     for (let i = 0; i < numTickets; i++) {
-        // Check if the current seat is occupied, if yes, move to the next seat
-        while (occupiedSeats.some(seat => seat.row === currentRow && seat.column === currentColumn)) {
-            currentColumn++;
-            if (currentColumn > columns) {
-                currentColumn = 1;
-                currentRow++;
-                if (currentRow > rows) {
-                    currentRow = 1; // Wrap around to the first row
-                }
-            }
-        }
-
-        // Add the available seat to the presetSeats array
-        presetSeats.push({ row: currentRow, column: currentColumn });
-
-        // Move to the next column
+      // Check if the current seat is occupied, if yes, move to the next seat
+      while (occupiedSeats.some(seat => seat.row === currentRow && seat.column === currentColumn)) {
         currentColumn++;
         if (currentColumn > columns) {
-            currentColumn = 1;
-            currentRow++;
-            if (currentRow > rows) {
-                currentRow = 1; // Wrap around to the first row
-            }
+          currentColumn = 1;
+          currentRow++;
+          if (currentRow > rows) {
+            currentRow = 1; // Wrap around to the first row
+          }
         }
+      }
+
+      // Add the available seat to the presetSeats array
+      presetSeats.push({ row: currentRow, column: currentColumn });
+
+      // Move to the next column
+      currentColumn++;
+      if (currentColumn > columns) {
+        currentColumn = 1;
+        currentRow++;
+        if (currentRow > rows) {
+          currentRow = 1; // Wrap around to the first row
+        }
+      }
     }
 
     // Set the selected seats and images
     setSelectedSeats(presetSeats);
 
     const presetSeatImages = presetSeats.reduce((images, seat) => {
-        images[`${seat.row}-${seat.column}`] = selectedSeatImage;
-        return images;
+      images[`${seat.row}-${seat.column}`] = selectedSeatImage;
+      return images;
     }, {});
 
     setSeatImages(prevImages => ({
-        ...prevImages,
-        ...presetSeatImages,
+      ...prevImages,
+      ...presetSeatImages,
     }));
-};
+  };
 
-
-  useEffect(() => {
-    markOccupiedSeats();
-  }, []); // Run once on component mount
-
-  useEffect(() => {
-    choosePresetSeats();
-  }, [numTickets, occupiedSeats]); // Run whenever numTickets or occupiedSeats change
+  choosePresetSeats(numTickets, occupiedSeats);
+}, [numTickets, occupiedSeats]); // Run whenever numTickets or occupiedSeats change
+ // Run whenever numTickets or occupiedSeats change
 
   // Handle seat click event
   const seatClicked = (row, column) => {

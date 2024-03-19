@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Button } from 'antd';
 
-import UpperNavImage from './components/Navigation/Logo.jpg';
+import UpperNavImage from './components/Navigation/Cinema-Logo.jpg';
+import BackGroundImage from './components/Navigation/1.jpg'
 import DateTime from './components/utility/Date and Time/dateTime';
 import CinemaList from './components/Connection/CinemaList';
 import EventList from './components/Connection/EventList';
@@ -13,20 +14,9 @@ import Success from './components/Success/Success';
 import Testing from './components/Callendar/calendar';
 import SignInSide from './components/Login/login';
 import Link from 'antd/es/typography/Link';
+import ParticleBackground from './components/utility/Background/particles';
 
 function RoutesComponent() {
-  useEffect(() => {
-    const link = document.createElement('link');
-    link.href = './App.css';
-    link.rel = 'stylesheet';
-    link.type = 'text/html';
-    link.async = true;
-    document.head.appendChild(link);
-
-    return () => {
-      document.head.removeChild(link);
-    };
-  }, []);
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -73,6 +63,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <ParticleBackground />
         <header>
           <div className='upper-nav'>
             <img src={UpperNavImage} alt="Logo of cinema" className="center" loading="lazy" />
