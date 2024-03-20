@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Button } from 'antd';
 
 import UpperNavImage from './components/Navigation/Cinema-Logo.jpg';
-import BackGroundImage from './components/Navigation/1.jpg'
 import DateTime from './components/utility/Date and Time/dateTime';
 import CinemaList from './components/Connection/CinemaList';
 import EventList from './components/Connection/EventList';
