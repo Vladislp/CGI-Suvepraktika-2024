@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.cinema.service.LanguageService;
+import com.example.demo.cinema.service.NewsService;
 
 @CrossOrigin(origins= "http://localhost:3000")
 @RestController
 @RequestMapping("/cinema")
-public class LanguageController {
+public class NewsController {
     @Autowired
-    private LanguageService LanguageService;
+    private NewsService NewsService;
 
 
-    @GetMapping("/language")
-    public String getLanguageData() {
-        return LanguageService.getLanguageData();
+    @GetMapping("/news")
+    public String getNewsData() {
+        return NewsService.getNewsData();
     }
 }
