@@ -14,6 +14,7 @@ import Testing from './components/Callendar/calendar';
 import SignInSide from './components/Login/login';
 import Link from 'antd/es/typography/Link';
 import ParticleBackground from './components/utility/Background/particles';
+import News from './components/utility/News/News';
 
 function RoutesComponent() {
   return (
@@ -21,6 +22,7 @@ function RoutesComponent() {
       <Route path="/" element={<Home />} />
       <Route path="/events" element={<EventList />} />
       <Route path="/success" element={<Success />} />
+      <Route path="/news" element={<News/>} />
       <Route path="/events/calendar" element={<Testing />} />
       <Route path="/movie/seats/*" element={<MovieSeats />} />
       <Route path="/*" element={<Error404 />} />
@@ -76,6 +78,7 @@ function App() {
               <Button href="#" className="language-link">English</Button>
               <Button href='/events/calendar'>Valige kuupäeva</Button>
               <Button href='/login'>Logi sisse</Button>
+              <Button href='/news'>Uudised</Button>
             </div>
             <div className='dateTime'>
               <DateTime />
